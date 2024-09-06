@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: rgb(39, 235, 218);
+}
+
+.img-galeri {
+  width: 80%;
+  margin: 100px auto 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 kolom */
+  grid-gap: 15px; /* Jarak antar gambar */
+}
+
+.img-galeri img {
+  width: 100%; /* Mengisi lebar kolom */
+  height: 100%; /* Mengisi tinggi kolom */
+  object-fit: cover; /* Memastikan gambar menutupi area tanpa distorsi */
+  cursor: pointer;
+  aspect-ratio: 1 / 1; /* Memastikan gambar tetap persegi */
+}
+
+/* Media query untuk layar sedang */
+@media (max-width: 1200px) {
+  .img-galeri {
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom */
+  }
+}
+
+/* Media query untuk layar kecil */
+@media (max-width: 800px) {
+  .img-galeri {
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+  }
+}
+
+/* Media query untuk layar sangat kecil, seperti ponsel */
+@media (max-width: 500px) {
+  .img-galeri {
+    grid-template-columns: 1fr; /* 1 kolom */
+  }
+}
+
+.img-galeri img:hover {
+  transform: scale(1.05) rotate(-5deg); /* Membesar sedikit saat hover */
+  border-radius: 20px; /* Mengurangi border-radius untuk menghindari potongan */
+  box-shadow: 0 8px 15px rgba(68, 77, 136, 0.3); /* Bayangan kotak lebih halus */
+}
+
+.full-img {
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.full-img img {
+  width: 90%;
+  max-width: 500px;
+}
+
+.full-img span {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+
+}
